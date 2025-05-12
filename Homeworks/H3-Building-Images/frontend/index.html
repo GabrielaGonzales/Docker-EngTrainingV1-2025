@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Container Info</title>
+  <script src="config.js"></script>
+  <script>
+    async function fetchInfo() {
+      const res = await fetch(`${window.APP_CONFIG.API_BASE}/info`);
+      const data = await res.json();
+      document.getElementById("output").innerText = `Hostname: ${data.hostname}\nIP: ${data.ip}`;
+    }
+  </script>
+</head>
+<body>
+  <h1>Container Info</h1>
+  <button onclick="fetchInfo()">Get Info</button>
+  <pre id="output"></pre>
+</body>
+</html>
